@@ -10,56 +10,84 @@
     body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 20px; }
     h1 { text-align: center; margin-bottom: 6px; font-size: 1.6em; color: #f0f6fc; }
     .subtitle { text-align: center; color: #8b949e; margin-bottom: 20px; font-size: 0.9em; }
-    .summary { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
-    .summary .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 120px; }
+
+    /* Summary cards */
+    .summary { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+    .summary .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 100px; flex: 1; max-width: 160px; }
     .summary .card .num { font-size: 1.8em; font-weight: 700; }
     .summary .card .label { font-size: 0.75em; color: #8b949e; margin-top: 2px; }
     .avg { color: #f85149; }
     .done-count { color: #3fb950; }
     .partial-count { color: #d29922; }
     .fail-count { color: #f85149; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-    th { background: #161b22; color: #8b949e; font-weight: 600; text-transform: uppercase; font-size: 0.7em; letter-spacing: 0.5px; padding: 10px 8px; text-align: left; border-bottom: 2px solid #30363d; position: sticky; top: 0; }
-    td { padding: 10px 8px; border-bottom: 1px solid #21262d; vertical-align: top; }
-    tr:hover { background: #161b22; }
+
+    /* Desktop table */
+    .desktop-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
+    .desktop-table th { background: #161b22; color: #8b949e; font-weight: 600; text-transform: uppercase; font-size: 0.7em; letter-spacing: 0.5px; padding: 10px 8px; text-align: left; border-bottom: 2px solid #30363d; position: sticky; top: 0; z-index: 1; }
+    .desktop-table td { padding: 10px 8px; border-bottom: 1px solid #21262d; vertical-align: top; }
+    .desktop-table tr:hover { background: #161b22; }
+
+    /* Mobile cards */
+    .mobile-cards { display: none; }
+    .ticket-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .ticket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .ticket-header-left { display: flex; align-items: center; gap: 8px; }
+    .ticket-num { background: #21262d; color: #8b949e; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: 600; flex-shrink: 0; }
+    .ticket-card .ticket-name { color: #58a6ff; font-weight: 600; font-size: 1em; }
+    .ticket-price { color: #8b949e; font-size: 0.85em; }
+    .ticket-section { margin-top: 10px; }
+    .ticket-section-title { color: #8b949e; font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
+    .ticket-progress { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #21262d; }
+    .ticket-progress .progress-bar { flex: 1; }
+
+    /* Shared */
     .ticket-name { color: #58a6ff; font-weight: 600; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
     .badge-red { background: #f8514922; color: #f85149; border: 1px solid #f8514944; }
     .badge-yellow { background: #d2992222; color: #d29922; border: 1px solid #d2992244; }
     .badge-green { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
-    .progress-bar { background: #21262d; border-radius: 4px; height: 8px; width: 100%; overflow: hidden; margin-top: 4px; }
-    .progress-fill { height: 100%; border-radius: 4px; transition: width 0.3s; }
+    .progress-bar { background: #21262d; border-radius: 4px; height: 8px; width: 100%; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 4px; }
     .dod-list { list-style: none; padding: 0; }
-    .dod-list li { padding: 2px 0; }
+    .dod-list li { padding: 3px 0; line-height: 1.4; }
     .dod-list li::before { margin-right: 4px; }
     .dod-pass::before { content: "✅"; }
     .dod-fail::before { content: "❌"; }
     .dod-warn::before { content: "⚠️"; }
     .todo-list { list-style: none; padding: 0; color: #f0883e; }
-    .todo-list li { padding: 2px 0; }
+    .todo-list li { padding: 3px 0; line-height: 1.4; }
     .todo-list li::before { content: "→ "; color: #f0883e; }
     a { color: #58a6ff; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    .back-link { text-align: center; margin-top: 20px; }
-    @media(max-width: 900px) {
-      table { font-size: 0.75em; }
-      td, th { padding: 6px 4px; }
+    .back-link { text-align: center; margin-top: 20px; padding-bottom: 20px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding: 12px; }
+      h1 { font-size: 1.2em; }
+      .subtitle { font-size: 0.8em; }
+      .summary .card { min-width: 70px; padding: 8px 6px; }
+      .summary .card .num { font-size: 1.3em; }
+      .summary .card .label { font-size: 0.65em; }
+      .desktop-table { display: none; }
+      .mobile-cards { display: block; }
     }
   </style>
 </head>
 <body>
   <h1>🗺️ Europe Data Map — Аудит тикетов</h1>
-  <p class="subtitle">Trello доска «Task management» · Исполнитель: Саша · Аудит: 7 марта 2026</p>
+  <p class="subtitle">Trello «Task management» · Исполнитель: Саша · 7 марта 2026</p>
 
   <div class="summary">
     <div class="card"><div class="num avg">52%</div><div class="label">Средняя готовность</div></div>
     <div class="card"><div class="num done-count">0</div><div class="label">Полностью готовы</div></div>
     <div class="card"><div class="num partial-count">10</div><div class="label">Частично</div></div>
     <div class="card"><div class="num fail-count">2</div><div class="label">Не сделаны</div></div>
-    <div class="card"><div class="num" style="color:#c9d1d9">8.50 €</div><div class="label">Общий бюджет</div></div>
+    <div class="card"><div class="num" style="color:#c9d1d9">8.50 €</div><div class="label">Бюджет</div></div>
   </div>
 
-  <table>
+  <!-- DESKTOP TABLE -->
+  <table class="desktop-table">
     <thead>
       <tr>
         <th style="width:4%">#</th>
@@ -71,286 +99,109 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td class="ticket-name">HTML + Leaflet.js</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Открывается в браузере</li>
-            <li class="dod-pass">Карта видна, тайлы грузятся</li>
-            <li class="dod-warn">Консоль: конфликт (map дважды)</li>
-            <li class="dod-pass">index.html в репо</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Убрать двойную HTML обёртку (CodePen wrapper внутри wrapper)</li>
-            <li>Оставить один чистый index.html</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">70%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td class="ticket-name">Карта Европы (GeoJSON)</td>
-        <td>1.00 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Границы стран видны</li>
-            <li class="dod-pass">Центрирована на Европу</li>
-            <li class="dod-fail">Зум НЕ ограничен (нет minZoom/maxZoom)</li>
-            <li class="dod-fail">GeoJSON НЕ в репозитории (внешний URL)</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Добавить minZoom: 3, maxZoom: 7</li>
-            <li>Скачать GeoJSON в репо, грузить локально</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">50%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td class="ticket-name">CSS тёмная тема</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Тёмный фон (#111)</li>
-            <li class="dod-pass">Шрифт задан (Arial)</li>
-            <li class="dod-warn">Карта ~500px, не 80% экрана</li>
-            <li class="dod-pass">Нет горизонтальных скроллбаров</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Заменить height: 500px на 80vh</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">80%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td class="ticket-name">JSON с данными по странам</td>
-        <td>1.00 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-fail">Файла countries.json НЕТ (данные в JS)</li>
-            <li class="dod-pass">46 стран (>15)</li>
-            <li class="dod-fail">Нет полей code, name, gdp, tam, region</li>
-            <li class="dod-fail">JSON не валидируется (нет файла)</li>
-            <li class="dod-fail">Нет ссылок на источники данных</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Создать countries.json с полями: code (ISO), name, gdp, tam, region</li>
-            <li>Использовать реальные данные из открытых источников</li>
-            <li>Указать ссылки на источники в README</li>
-            <li>Загружать данные из файла через fetch()</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">20%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td class="ticket-name">Heat map раскраска</td>
-        <td>1.00 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Страны окрашены градиентом</li>
-            <li class="dod-fail">Без данных = зелёные, а не серые</li>
-            <li class="dod-pass">Цвета различимы (5 уровней)</li>
-            <li class="dod-fail">Данные не из countries.json</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Страны без данных → серый (#666)</li>
-            <li>Брать данные из countries.json</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">50%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td class="ticket-name">Легенда цветов</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-fail">Блок под картой, не в углу карты</li>
-            <li class="dod-fail">Нет визуального градиента — просто текст</li>
-            <li class="dod-warn">Подписи мин/макс есть</li>
-            <li class="dod-fail">Нет единицы измерения</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Перенести в угол карты (L.Control)</li>
-            <li>Сделать цветные квадратики вместо текста</li>
-            <li>Указать единицу измерения</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">40%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td class="ticket-name">Hover-эффект</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">При наведении — подсветка (белая обводка)</li>
-            <li class="dod-fail">Нет tooltip с названием страны</li>
-            <li class="dod-pass">При уходе мыши — возврат</li>
-            <li class="dod-pass">Без мерцания</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Добавить L.tooltip с названием страны при hover</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">60%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td class="ticket-name">Детали при клике</td>
-        <td>1.00 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-fail">alert() вместо панели/popup</li>
-            <li class="dod-warn">Показывает name + число, не GDP/TAM/region</li>
-            <li class="dod-fail">Нет крестика закрытия (alert ≠ panel)</li>
-            <li class="dod-fail">alert перекрывает всё</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Заменить alert() на L.popup или боковую панель</li>
-            <li>Показывать name, GDP, TAM, region</li>
-            <li>Крестик или повторный клик для закрытия</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">20%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td class="ticket-name">Поиск по стране</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Input поле видно</li>
-            <li class="dod-fail">НЕ зумится на найденную страну</li>
-            <li class="dod-pass">Подсвечивает найденные (cyan)</li>
-            <li class="dod-pass">Не ломается если не найдена</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>При 3+ буквах — map.fitBounds() на найденную страну</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">60%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td class="ticket-name">Responsive</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-warn">@media только меняет высоту</li>
-            <li class="dod-warn">Панель деталей = alert (не применимо)</li>
-            <li class="dod-pass">Поиск доступен на телефоне</li>
-            <li class="dod-fail">Не проверено на разных устройствах</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Проверить в DevTools: iPhone SE, iPad</li>
-            <li>Убедиться что popup/панель не перекрывает карту на мобиле</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-red">50%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>11</td>
-        <td class="ticket-name">Стилизация + favicon</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Favicon есть (EU flag)</li>
-            <li class="dod-fail">Title = "Untitled" в обёртке</li>
-            <li class="dod-warn">Стиль минимальный но единый</li>
-            <li class="dod-pass">margin:0 на body</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Исправить title на "Europe Data Map"</li>
-            <li>Унифицировать стили кнопок/панелей</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">60%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div>
-        </td>
-      </tr>
-      <tr>
-        <td>12</td>
-        <td class="ticket-name">Деплой на сервер</td>
-        <td>0.50 €</td>
-        <td>
-          <ul class="dod-list">
-            <li class="dod-pass">Доступен по публичной ссылке</li>
-            <li class="dod-warn">Грузится ~2-3 сек (GeoJSON внешний)</li>
-            <li class="dod-pass">Работает без VPN</li>
-            <li class="dod-warn">Деплоил Oyloo, не Саша</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="todo-list">
-            <li>Научиться деплоить самому (gh-pages)</li>
-            <li>Ускорить загрузку (локальный GeoJSON)</li>
-          </ul>
-        </td>
-        <td>
-          <span class="badge badge-yellow">70%</span>
-          <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div>
-        </td>
-      </tr>
+      <tr><td>1</td><td class="ticket-name">HTML + Leaflet.js</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Открывается в браузере</li><li class="dod-pass">Карта видна, тайлы грузятся</li><li class="dod-warn">Консоль: конфликт (map дважды)</li><li class="dod-pass">index.html в репо</li></ul></td><td><ul class="todo-list"><li>Убрать двойную HTML обёртку</li><li>Оставить один чистый index.html</li></ul></td><td><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td></tr>
+      <tr><td>2</td><td class="ticket-name">Карта Европы (GeoJSON)</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-pass">Границы стран видны</li><li class="dod-pass">Центрирована на Европу</li><li class="dod-fail">Зум НЕ ограничен</li><li class="dod-fail">GeoJSON НЕ в репозитории</li></ul></td><td><ul class="todo-list"><li>Добавить minZoom: 3, maxZoom: 7</li><li>Скачать GeoJSON в репо</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
+      <tr><td>3</td><td class="ticket-name">CSS тёмная тема</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Тёмный фон (#111)</li><li class="dod-pass">Шрифт задан (Arial)</li><li class="dod-warn">Карта ~500px, не 80% экрана</li><li class="dod-pass">Нет горизонтальных скроллбаров</li></ul></td><td><ul class="todo-list"><li>Заменить height: 500px на 80vh</li></ul></td><td><span class="badge badge-yellow">80%</span><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></td></tr>
+      <tr><td>4</td><td class="ticket-name">JSON с данными</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-fail">Файла countries.json НЕТ</li><li class="dod-pass">46 стран (>15)</li><li class="dod-fail">Нет полей code, gdp, tam, region</li><li class="dod-fail">Нет ссылок на источники</li></ul></td><td><ul class="todo-list"><li>Создать countries.json</li><li>Реальные данные + источники в README</li><li>Загружать через fetch()</li></ul></td><td><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td></tr>
+      <tr><td>5</td><td class="ticket-name">Heat map</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-pass">Страны окрашены градиентом</li><li class="dod-fail">Без данных = зелёные, не серые</li><li class="dod-pass">Цвета различимы</li><li class="dod-fail">Данные не из countries.json</li></ul></td><td><ul class="todo-list"><li>Без данных → серый (#666)</li><li>Данные из countries.json</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
+      <tr><td>6</td><td class="ticket-name">Легенда цветов</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-fail">Под картой, не в углу</li><li class="dod-fail">Нет градиента — просто текст</li><li class="dod-warn">Подписи мин/макс есть</li><li class="dod-fail">Нет единицы измерения</li></ul></td><td><ul class="todo-list"><li>L.Control в углу карты</li><li>Цветные квадратики</li><li>Единица измерения</li></ul></td><td><span class="badge badge-red">40%</span><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></td></tr>
+      <tr><td>7</td><td class="ticket-name">Hover-эффект</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Подсветка при наведении</li><li class="dod-fail">Нет tooltip</li><li class="dod-pass">Возврат при уходе мыши</li><li class="dod-pass">Без мерцания</li></ul></td><td><ul class="todo-list"><li>Добавить L.tooltip с названием</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
+      <tr><td>8</td><td class="ticket-name">Детали при клике</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-fail">alert() вместо popup</li><li class="dod-warn">Только name + число</li><li class="dod-fail">Нет крестика закрытия</li></ul></td><td><ul class="todo-list"><li>L.popup или боковая панель</li><li>Показать GDP, TAM, region</li><li>Крестик для закрытия</li></ul></td><td><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td></tr>
+      <tr><td>9</td><td class="ticket-name">Поиск по стране</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Input поле видно</li><li class="dod-fail">НЕ зумится на страну</li><li class="dod-pass">Подсвечивает найденные</li><li class="dod-pass">Не ломается</li></ul></td><td><ul class="todo-list"><li>map.fitBounds() при 3+ буквах</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
+      <tr><td>10</td><td class="ticket-name">Responsive</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-warn">@media только высота</li><li class="dod-pass">Поиск работает на телефоне</li><li class="dod-fail">Не проверено на устройствах</li></ul></td><td><ul class="todo-list"><li>Проверить iPhone SE, iPad</li><li>Popup не перекрывает карту</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
+      <tr><td>11</td><td class="ticket-name">Стилизация + favicon</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Favicon есть</li><li class="dod-fail">Title = "Untitled"</li><li class="dod-warn">Стиль минимальный</li><li class="dod-pass">margin:0 на body</li></ul></td><td><ul class="todo-list"><li>Title → "Europe Data Map"</li><li>Унифицировать стили</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
+      <tr><td>12</td><td class="ticket-name">Деплой</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Публичная ссылка</li><li class="dod-warn">Загрузка ~2-3 сек</li><li class="dod-pass">Без VPN</li><li class="dod-warn">Деплоил Oyloo</li></ul></td><td><ul class="todo-list"><li>Научиться деплоить самому</li><li>Локальный GeoJSON</li></ul></td><td><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td></tr>
     </tbody>
   </table>
+
+  <!-- MOBILE CARDS -->
+  <div class="mobile-cards">
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">1</div><span class="ticket-name">HTML + Leaflet.js</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Открывается в браузере</li><li class="dod-pass">Карта видна, тайлы грузятся</li><li class="dod-warn">Консоль: конфликт (map дважды)</li><li class="dod-pass">index.html в репо</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Убрать двойную HTML обёртку</li><li>Один чистый index.html</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">2</div><span class="ticket-name">Карта Европы (GeoJSON)</span></div><span class="ticket-price">1.00 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Границы стран видны</li><li class="dod-pass">Центрирована на Европу</li><li class="dod-fail">Зум НЕ ограничен</li><li class="dod-fail">GeoJSON НЕ в репозитории</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>minZoom: 3, maxZoom: 7</li><li>Скачать GeoJSON в репо</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">3</div><span class="ticket-name">CSS тёмная тема</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Тёмный фон</li><li class="dod-pass">Шрифт задан</li><li class="dod-warn">Карта 500px, не 80vh</li><li class="dod-pass">Нет горизонтального скролла</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>height: 500px → 80vh</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">80%</span><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">4</div><span class="ticket-name">JSON с данными</span></div><span class="ticket-price">1.00 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">Файла countries.json НЕТ</li><li class="dod-pass">46 стран (>15)</li><li class="dod-fail">Нет полей code, gdp, tam, region</li><li class="dod-fail">Нет ссылок на источники</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Создать countries.json</li><li>Реальные данные + источники</li><li>Загружать через fetch()</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">5</div><span class="ticket-name">Heat map</span></div><span class="ticket-price">1.00 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Градиент работает</li><li class="dod-fail">Без данных = зелёные, не серые</li><li class="dod-pass">Цвета различимы</li><li class="dod-fail">Не из countries.json</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Без данных → серый</li><li>Данные из countries.json</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">6</div><span class="ticket-name">Легенда цветов</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">Под картой, не в углу</li><li class="dod-fail">Текст вместо градиента</li><li class="dod-warn">Подписи есть</li><li class="dod-fail">Нет единицы измерения</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.Control в углу карты</li><li>Цветные квадратики</li><li>Единица измерения</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">40%</span><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">7</div><span class="ticket-name">Hover-эффект</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Подсветка при наведении</li><li class="dod-fail">Нет tooltip</li><li class="dod-pass">Возврат при уходе мыши</li><li class="dod-pass">Без мерцания</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.tooltip с названием страны</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">8</div><span class="ticket-name">Детали при клике</span></div><span class="ticket-price">1.00 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">alert() вместо popup</li><li class="dod-warn">Только name + число</li><li class="dod-fail">Нет крестика закрытия</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.popup или боковая панель</li><li>Показать GDP, TAM, region</li><li>Крестик закрытия</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">9</div><span class="ticket-name">Поиск по стране</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Input поле видно</li><li class="dod-fail">Не зумится на страну</li><li class="dod-pass">Подсвечивает найденные</li><li class="dod-pass">Не ломается</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>map.fitBounds() при 3+ буквах</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">10</div><span class="ticket-name">Responsive</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-warn">@media только высота</li><li class="dod-pass">Поиск на телефоне ок</li><li class="dod-fail">Не проверено на устройствах</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Проверить iPhone SE, iPad</li><li>Popup не перекрывает карту</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">11</div><span class="ticket-name">Стилизация + favicon</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Favicon есть</li><li class="dod-fail">Title = "Untitled"</li><li class="dod-warn">Стиль минимальный</li><li class="dod-pass">margin:0</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Title → "Europe Data Map"</li><li>Унифицировать стили</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    </div>
+
+    <div class="ticket-card">
+      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">12</div><span class="ticket-name">Деплой</span></div><span class="ticket-price">0.50 €</span></div>
+      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Публичная ссылка</li><li class="dod-warn">Загрузка ~2-3 сек</li><li class="dod-pass">Без VPN</li><li class="dod-warn">Деплоил Oyloo</li></ul></div>
+      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Научиться деплоить самому</li><li>Локальный GeoJSON</li></ul></div>
+      <div class="ticket-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+    </div>
+
+  </div>
 
   <p class="back-link"><a href="./index.html">← Назад к карте</a></p>
 </body>
