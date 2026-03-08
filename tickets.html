@@ -11,52 +11,77 @@
     h1 { text-align: center; margin-bottom: 6px; font-size: 1.6em; color: #f0f6fc; }
     .subtitle { text-align: center; color: #8b949e; margin-bottom: 20px; font-size: 0.9em; }
 
-    /* Summary cards */
-    .summary { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
-    .summary .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 100px; flex: 1; max-width: 160px; }
+    /* Summary */
+    .summary { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+    .summary .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 110px; flex: 1; max-width: 160px; }
     .summary .card .num { font-size: 1.8em; font-weight: 700; }
     .summary .card .label { font-size: 0.75em; color: #8b949e; margin-top: 2px; }
-    .avg { color: #f85149; }
-    .done-count { color: #3fb950; }
-    .partial-count { color: #d29922; }
-    .fail-count { color: #f85149; }
+
+    /* Section */
+    .section { margin-bottom: 44px; }
+    .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #30363d; flex-wrap: wrap; }
+    .section-header h2 { font-size: 1.05em; color: #f0f6fc; font-weight: 600; }
+    .count-badge { background: #21262d; color: #8b949e; border-radius: 10px; padding: 2px 9px; font-size: 0.78em; font-weight: 600; }
+    .section-title-badge { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 0.72em; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; flex-shrink: 0; }
+    .section-title-badge.pending { background: #1f6feb33; color: #58a6ff; border: 1px solid #1f6feb55; }
+    .section-title-badge.todo { background: #f0883e33; color: #f0883e; border: 1px solid #f0883e55; }
 
     /* Desktop table */
-    .desktop-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-    .desktop-table th { background: #161b22; color: #8b949e; font-weight: 600; text-transform: uppercase; font-size: 0.7em; letter-spacing: 0.5px; padding: 10px 8px; text-align: left; border-bottom: 2px solid #30363d; position: sticky; top: 0; z-index: 1; }
+    .desktop-table { width: 100%; border-collapse: collapse; font-size: 0.84em; }
+    .desktop-table th { background: #161b22; color: #8b949e; font-weight: 600; text-transform: uppercase; font-size: 0.68em; letter-spacing: 0.5px; padding: 10px 8px; text-align: left; border-bottom: 2px solid #30363d; position: sticky; top: 0; z-index: 1; }
     .desktop-table td { padding: 10px 8px; border-bottom: 1px solid #21262d; vertical-align: top; }
     .desktop-table tr:hover { background: #161b22; }
+    .t-id { color: #8b949e; font-family: monospace; font-size: 0.85em; white-space: nowrap; }
+    .ticket-name { color: #58a6ff; font-weight: 600; }
 
-    /* Mobile cards */
+    /* Mobile pending cards */
     .mobile-cards { display: none; }
-    .ticket-card { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px; margin-bottom: 12px; }
-    .ticket-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-    .ticket-header-left { display: flex; align-items: center; gap: 8px; }
-    .ticket-num { background: #21262d; color: #8b949e; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; font-weight: 600; flex-shrink: 0; }
-    .ticket-card .ticket-name { color: #58a6ff; font-weight: 600; font-size: 1em; }
-    .ticket-price { color: #8b949e; font-size: 0.85em; }
-    .ticket-section { margin-top: 10px; }
-    .ticket-section-title { color: #8b949e; font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; font-weight: 600; }
-    .ticket-progress { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #21262d; }
-    .ticket-progress .progress-bar { flex: 1; }
+    .pending-card { background: #161b22; border: 1px solid #30363d; border-left: 3px solid #1f6feb; border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+    .pending-card-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .pc-id { background: #21262d; color: #8b949e; border-radius: 4px; padding: 2px 7px; font-size: 0.72em; font-family: monospace; flex-shrink: 0; }
+    .pc-name { color: #58a6ff; font-weight: 600; font-size: 0.95em; flex: 1; }
+    .pc-price { color: #8b949e; font-size: 0.82em; white-space: nowrap; }
+    .pc-progress { display: flex; align-items: center; gap: 10px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #21262d; }
+    .pc-progress .progress-bar { flex: 1; }
+    .pc-deps { margin-top: 8px; font-size: 0.76em; color: #8b949e; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .pc-deps-label { text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.9em; }
+
+    /* Fix cards grid */
+    .fix-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+    .fix-card { background: #161b22; border: 1px solid #30363d; border-left: 3px solid #f0883e; border-radius: 10px; padding: 16px; }
+    .fix-card-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+    .fix-id { background: #f0883e22; color: #f0883e; border: 1px solid #f0883e44; border-radius: 5px; padding: 2px 8px; font-size: 0.72em; font-weight: 700; font-family: monospace; white-space: nowrap; flex-shrink: 0; }
+    .fix-title { color: #f0f6fc; font-weight: 600; font-size: 0.92em; line-height: 1.4; }
+    .fix-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .fix-related { background: #21262d; color: #8b949e; border-radius: 4px; padding: 2px 7px; font-size: 0.7em; }
+    .fix-priority { border-radius: 4px; padding: 2px 7px; font-size: 0.7em; font-weight: 700; letter-spacing: 0.3px; }
+    .priority-high { background: #f8514922; color: #f85149; border: 1px solid #f8514944; }
+    .priority-med  { background: #d2992222; color: #d29922; border: 1px solid #d2992244; }
+    .priority-low  { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
+    .fix-steps { list-style: none; padding: 0; margin-bottom: 10px; }
+    .fix-steps li { color: #c9d1d9; font-size: 0.83em; padding: 3px 0; line-height: 1.4; }
+    .fix-steps li::before { content: "→ "; color: #f0883e; }
+    .fix-deps { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid #21262d; font-size: 0.72em; }
+    .fix-deps-label { color: #8b949e; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap; }
+    .dep-chip { background: #21262d; color: #58a6ff; border: 1px solid #30363d; border-radius: 4px; padding: 1px 7px; font-family: monospace; text-decoration: none; transition: background 0.15s; }
+    .dep-chip:hover { background: #30363d; text-decoration: none; }
+    .no-deps { color: #484f58; font-style: italic; }
 
     /* Shared */
-    .ticket-name { color: #58a6ff; font-weight: 600; }
     .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75em; font-weight: 600; white-space: nowrap; }
-    .badge-red { background: #f8514922; color: #f85149; border: 1px solid #f8514944; }
+    .badge-red    { background: #f8514922; color: #f85149; border: 1px solid #f8514944; }
     .badge-yellow { background: #d2992222; color: #d29922; border: 1px solid #d2992244; }
-    .badge-green { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
+    .badge-green  { background: #3fb95022; color: #3fb950; border: 1px solid #3fb95044; }
     .progress-bar { background: #21262d; border-radius: 4px; height: 8px; width: 100%; overflow: hidden; }
     .progress-fill { height: 100%; border-radius: 4px; }
     .dod-list { list-style: none; padding: 0; }
-    .dod-list li { padding: 3px 0; line-height: 1.4; }
-    .dod-list li::before { margin-right: 4px; }
-    .dod-pass::before { content: "✅"; }
-    .dod-fail::before { content: "❌"; }
-    .dod-warn::before { content: "⚠️"; }
-    .todo-list { list-style: none; padding: 0; color: #f0883e; }
-    .todo-list li { padding: 3px 0; line-height: 1.4; }
-    .todo-list li::before { content: "→ "; color: #f0883e; }
+    .dod-list li { padding: 2px 0; line-height: 1.4; font-size: 0.84em; }
+    .dod-pass::before { content: "✅ "; }
+    .dod-fail::before { content: "❌ "; }
+    .dod-warn::before { content: "⚠️ "; }
+    .dep-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+    .t-dep-chip { background: #21262d; color: #8b949e; border-radius: 4px; padding: 1px 6px; font-size: 0.72em; font-family: monospace; text-decoration: none; }
+    .t-dep-chip:hover { color: #58a6ff; }
     a { color: #58a6ff; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .back-link { text-align: center; margin-top: 20px; padding-bottom: 20px; }
@@ -71,138 +96,709 @@
       .summary .card .label { font-size: 0.65em; }
       .desktop-table { display: none; }
       .mobile-cards { display: block; }
+      .fix-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <h1>🗺️ Europe Data Map — Аудит тикетов</h1>
-  <p class="subtitle">Trello «Task management» · Исполнитель: Саша · 7 марта 2026</p>
 
-  <div class="summary">
-    <div class="card"><div class="num avg">52%</div><div class="label">Средняя готовность</div></div>
-    <div class="card"><div class="num done-count">0</div><div class="label">Полностью готовы</div></div>
-    <div class="card"><div class="num partial-count">10</div><div class="label">Частично</div></div>
-    <div class="card"><div class="num fail-count">2</div><div class="label">Не сделаны</div></div>
-    <div class="card"><div class="num" style="color:#c9d1d9">8.50 €</div><div class="label">Бюджет</div></div>
+<h1>🗺️ Europe Data Map — Статус тикетов</h1>
+<p class="subtitle">Trello «Task management» · Исполнитель: Саша · Аудит: 7 марта 2026</p>
+
+<div class="summary">
+  <div class="card"><div class="num" style="color:#58a6ff">12</div><div class="label">Pending (Саша)</div></div>
+  <div class="card"><div class="num" style="color:#f0883e">14</div><div class="label">To Do (доделать)</div></div>
+  <div class="card"><div class="num" style="color:#d29922">52%</div><div class="label">Средняя готовность</div></div>
+  <div class="card"><div class="num" style="color:#c9d1d9">8.50 €</div><div class="label">Бюджет Саши</div></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  PENDING SECTION                                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title-badge pending">⏳ Pending</span>
+    <h2>Работа Саши — ждёт проверки</h2>
+    <span class="count-badge">12</span>
   </div>
 
   <!-- DESKTOP TABLE -->
   <table class="desktop-table">
     <thead>
       <tr>
-        <th style="width:4%">#</th>
-        <th style="width:16%">Тикет</th>
-        <th style="width:6%">Цена</th>
-        <th style="width:28%">DoD — статус</th>
-        <th style="width:28%">Что доделать</th>
-        <th style="width:8%">%</th>
+        <th style="width:5%">#</th>
+        <th style="width:17%">Тикет</th>
+        <th style="width:5%">Цена</th>
+        <th style="width:38%">DoD — статус</th>
+        <th style="width:11%">%</th>
+        <th style="width:12%">Зависит от</th>
+        <th style="width:12%">Фиксы</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td class="ticket-name">HTML + Leaflet.js</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Открывается в браузере</li><li class="dod-pass">Карта видна, тайлы грузятся</li><li class="dod-warn">Консоль: конфликт (map дважды)</li><li class="dod-pass">index.html в репо</li></ul></td><td><ul class="todo-list"><li>Убрать двойную HTML обёртку</li><li>Оставить один чистый index.html</li></ul></td><td><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td></tr>
-      <tr><td>2</td><td class="ticket-name">Карта Европы (GeoJSON)</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-pass">Границы стран видны</li><li class="dod-pass">Центрирована на Европу</li><li class="dod-fail">Зум НЕ ограничен</li><li class="dod-fail">GeoJSON НЕ в репозитории</li></ul></td><td><ul class="todo-list"><li>Добавить minZoom: 3, maxZoom: 7</li><li>Скачать GeoJSON в репо</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
-      <tr><td>3</td><td class="ticket-name">CSS тёмная тема</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Тёмный фон (#111)</li><li class="dod-pass">Шрифт задан (Arial)</li><li class="dod-warn">Карта ~500px, не 80% экрана</li><li class="dod-pass">Нет горизонтальных скроллбаров</li></ul></td><td><ul class="todo-list"><li>Заменить height: 500px на 80vh</li></ul></td><td><span class="badge badge-yellow">80%</span><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></td></tr>
-      <tr><td>4</td><td class="ticket-name">JSON с данными</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-fail">Файла countries.json НЕТ</li><li class="dod-pass">46 стран (>15)</li><li class="dod-fail">Нет полей code, gdp, tam, region</li><li class="dod-fail">Нет ссылок на источники</li></ul></td><td><ul class="todo-list"><li>Создать countries.json</li><li>Реальные данные + источники в README</li><li>Загружать через fetch()</li></ul></td><td><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td></tr>
-      <tr><td>5</td><td class="ticket-name">Heat map</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-pass">Страны окрашены градиентом</li><li class="dod-fail">Без данных = зелёные, не серые</li><li class="dod-pass">Цвета различимы</li><li class="dod-fail">Данные не из countries.json</li></ul></td><td><ul class="todo-list"><li>Без данных → серый (#666)</li><li>Данные из countries.json</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
-      <tr><td>6</td><td class="ticket-name">Легенда цветов</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-fail">Под картой, не в углу</li><li class="dod-fail">Нет градиента — просто текст</li><li class="dod-warn">Подписи мин/макс есть</li><li class="dod-fail">Нет единицы измерения</li></ul></td><td><ul class="todo-list"><li>L.Control в углу карты</li><li>Цветные квадратики</li><li>Единица измерения</li></ul></td><td><span class="badge badge-red">40%</span><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></td></tr>
-      <tr><td>7</td><td class="ticket-name">Hover-эффект</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Подсветка при наведении</li><li class="dod-fail">Нет tooltip</li><li class="dod-pass">Возврат при уходе мыши</li><li class="dod-pass">Без мерцания</li></ul></td><td><ul class="todo-list"><li>Добавить L.tooltip с названием</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
-      <tr><td>8</td><td class="ticket-name">Детали при клике</td><td>1.00 €</td><td><ul class="dod-list"><li class="dod-fail">alert() вместо popup</li><li class="dod-warn">Только name + число</li><li class="dod-fail">Нет крестика закрытия</li></ul></td><td><ul class="todo-list"><li>L.popup или боковая панель</li><li>Показать GDP, TAM, region</li><li>Крестик для закрытия</li></ul></td><td><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td></tr>
-      <tr><td>9</td><td class="ticket-name">Поиск по стране</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Input поле видно</li><li class="dod-fail">НЕ зумится на страну</li><li class="dod-pass">Подсвечивает найденные</li><li class="dod-pass">Не ломается</li></ul></td><td><ul class="todo-list"><li>map.fitBounds() при 3+ буквах</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
-      <tr><td>10</td><td class="ticket-name">Responsive</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-warn">@media только высота</li><li class="dod-pass">Поиск работает на телефоне</li><li class="dod-fail">Не проверено на устройствах</li></ul></td><td><ul class="todo-list"><li>Проверить iPhone SE, iPad</li><li>Popup не перекрывает карту</li></ul></td><td><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td></tr>
-      <tr><td>11</td><td class="ticket-name">Стилизация + favicon</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Favicon есть</li><li class="dod-fail">Title = "Untitled"</li><li class="dod-warn">Стиль минимальный</li><li class="dod-pass">margin:0 на body</li></ul></td><td><ul class="todo-list"><li>Title → "Europe Data Map"</li><li>Унифицировать стили</li></ul></td><td><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td></tr>
-      <tr><td>12</td><td class="ticket-name">Деплой</td><td>0.50 €</td><td><ul class="dod-list"><li class="dod-pass">Публичная ссылка</li><li class="dod-warn">Загрузка ~2-3 сек</li><li class="dod-pass">Без VPN</li><li class="dod-warn">Деплоил Oyloo</li></ul></td><td><ul class="todo-list"><li>Научиться деплоить самому</li><li>Локальный GeoJSON</li></ul></td><td><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td></tr>
+
+      <tr id="T01">
+        <td class="t-id">T01</td>
+        <td class="ticket-name">HTML + Leaflet.js</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Открывается в браузере</li>
+          <li class="dod-pass">Карта видна, тайлы грузятся</li>
+          <li class="dod-warn">Консоль: конфликт (map дважды)</li>
+          <li class="dod-pass">index.html в репо</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">70%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td>
+        <td>—</td>
+        <td><div class="dep-chips"><a href="#F01" class="dep-chip">F01</a></div></td>
+      </tr>
+
+      <tr id="T02">
+        <td class="t-id">T02</td>
+        <td class="ticket-name">Карта Европы (GeoJSON)</td>
+        <td>1.00 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Границы стран видны</li>
+          <li class="dod-pass">Центрирована на Европу</li>
+          <li class="dod-fail">Зум НЕ ограничен</li>
+          <li class="dod-fail">GeoJSON НЕ в репозитории</li>
+        </ul></td>
+        <td><span class="badge badge-red">50%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td>
+        <td>—</td>
+        <td><div class="dep-chips"><a href="#F02" class="dep-chip">F02</a><a href="#F03" class="dep-chip">F03</a></div></td>
+      </tr>
+
+      <tr id="T03">
+        <td class="t-id">T03</td>
+        <td class="ticket-name">CSS тёмная тема</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Тёмный фон (#111)</li>
+          <li class="dod-pass">Шрифт задан (Arial)</li>
+          <li class="dod-warn">Карта ~500px, не 80vh</li>
+          <li class="dod-pass">Нет горизонтальных скроллбаров</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">80%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></td>
+        <td>—</td>
+        <td><div class="dep-chips"><a href="#F04" class="dep-chip">F04</a></div></td>
+      </tr>
+
+      <tr id="T04">
+        <td class="t-id">T04</td>
+        <td class="ticket-name">JSON с данными</td>
+        <td>1.00 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-fail">Файла countries.json НЕТ</li>
+          <li class="dod-pass">46 стран (&gt;15)</li>
+          <li class="dod-fail">Нет полей code, gdp, tam, region</li>
+          <li class="dod-fail">Нет ссылок на источники</li>
+        </ul></td>
+        <td><span class="badge badge-red">20%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td>
+        <td>—</td>
+        <td><div class="dep-chips"><a href="#F05" class="dep-chip">F05</a><a href="#F06" class="dep-chip">F06</a></div></td>
+      </tr>
+
+      <tr id="T05">
+        <td class="t-id">T05</td>
+        <td class="ticket-name">Heat map</td>
+        <td>1.00 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Страны окрашены градиентом</li>
+          <li class="dod-fail">Без данных = зелёные, не серые</li>
+          <li class="dod-pass">Цвета различимы</li>
+          <li class="dod-fail">Данные не из countries.json</li>
+        </ul></td>
+        <td><span class="badge badge-red">50%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td>
+        <td><div class="dep-chips"><a href="#T04" class="t-dep-chip">T04</a></div></td>
+        <td><div class="dep-chips"><a href="#F07" class="dep-chip">F07</a></div></td>
+      </tr>
+
+      <tr id="T06">
+        <td class="t-id">T06</td>
+        <td class="ticket-name">Легенда цветов</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-fail">Под картой, не в углу</li>
+          <li class="dod-fail">Нет градиента — просто текст</li>
+          <li class="dod-warn">Подписи мин/макс есть</li>
+          <li class="dod-fail">Нет единицы измерения</li>
+        </ul></td>
+        <td><span class="badge badge-red">40%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></td>
+        <td><div class="dep-chips"><a href="#T04" class="t-dep-chip">T04</a><a href="#T05" class="t-dep-chip">T05</a></div></td>
+        <td><div class="dep-chips"><a href="#F08" class="dep-chip">F08</a></div></td>
+      </tr>
+
+      <tr id="T07">
+        <td class="t-id">T07</td>
+        <td class="ticket-name">Hover-эффект</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Подсветка при наведении</li>
+          <li class="dod-fail">Нет tooltip</li>
+          <li class="dod-pass">Возврат при уходе мыши</li>
+          <li class="dod-pass">Без мерцания</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">60%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td>
+        <td><div class="dep-chips"><a href="#T02" class="t-dep-chip">T02</a></div></td>
+        <td><div class="dep-chips"><a href="#F09" class="dep-chip">F09</a></div></td>
+      </tr>
+
+      <tr id="T08">
+        <td class="t-id">T08</td>
+        <td class="ticket-name">Детали при клике</td>
+        <td>1.00 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-fail">alert() вместо popup</li>
+          <li class="dod-warn">Только name + число</li>
+          <li class="dod-fail">Нет крестика закрытия</li>
+        </ul></td>
+        <td><span class="badge badge-red">20%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></td>
+        <td><div class="dep-chips"><a href="#T04" class="t-dep-chip">T04</a></div></td>
+        <td><div class="dep-chips"><a href="#F10" class="dep-chip">F10</a></div></td>
+      </tr>
+
+      <tr id="T09">
+        <td class="t-id">T09</td>
+        <td class="ticket-name">Поиск по стране</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Input поле видно</li>
+          <li class="dod-fail">НЕ зумится на страну</li>
+          <li class="dod-pass">Подсвечивает найденные</li>
+          <li class="dod-pass">Не ломается</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">60%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td>
+        <td><div class="dep-chips"><a href="#T02" class="t-dep-chip">T02</a></div></td>
+        <td><div class="dep-chips"><a href="#F11" class="dep-chip">F11</a></div></td>
+      </tr>
+
+      <tr id="T10">
+        <td class="t-id">T10</td>
+        <td class="ticket-name">Responsive</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-warn">@media только высота</li>
+          <li class="dod-pass">Поиск работает на телефоне</li>
+          <li class="dod-fail">Не проверено на устройствах</li>
+        </ul></td>
+        <td><span class="badge badge-red">50%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></td>
+        <td><div class="dep-chips"><a href="#T08" class="t-dep-chip">T08</a></div></td>
+        <td><div class="dep-chips"><a href="#F12" class="dep-chip">F12</a></div></td>
+      </tr>
+
+      <tr id="T11">
+        <td class="t-id">T11</td>
+        <td class="ticket-name">Стилизация + favicon</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Favicon есть</li>
+          <li class="dod-fail">Title = "Untitled"</li>
+          <li class="dod-warn">Стиль минимальный</li>
+          <li class="dod-pass">margin:0 на body</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">60%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></td>
+        <td><div class="dep-chips"><a href="#T01" class="t-dep-chip">T01</a></div></td>
+        <td><div class="dep-chips"><a href="#F13" class="dep-chip">F13</a></div></td>
+      </tr>
+
+      <tr id="T12">
+        <td class="t-id">T12</td>
+        <td class="ticket-name">Деплой</td>
+        <td>0.50 €</td>
+        <td><ul class="dod-list">
+          <li class="dod-pass">Публичная ссылка</li>
+          <li class="dod-warn">Загрузка ~2-3 сек</li>
+          <li class="dod-pass">Без VPN</li>
+          <li class="dod-warn">Деплоил Oyloo</li>
+        </ul></td>
+        <td><span class="badge badge-yellow">70%</span><div class="progress-bar" style="margin-top:4px"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></td>
+        <td><div class="dep-chips"><a href="#T02" class="t-dep-chip">T02</a></div></td>
+        <td><div class="dep-chips"><a href="#F14" class="dep-chip">F14</a></div></td>
+      </tr>
+
     </tbody>
   </table>
 
-  <!-- MOBILE CARDS -->
+  <!-- MOBILE CARDS - Pending -->
   <div class="mobile-cards">
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">1</div><span class="ticket-name">HTML + Leaflet.js</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Открывается в браузере</li><li class="dod-pass">Карта видна, тайлы грузятся</li><li class="dod-warn">Консоль: конфликт (map дважды)</li><li class="dod-pass">index.html в репо</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Убрать двойную HTML обёртку</li><li>Один чистый index.html</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T01-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T01</span><span class="pc-name">HTML + Leaflet.js</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Открывается в браузере</li>
+        <li class="dod-pass">Карта видна, тайлы грузятся</li>
+        <li class="dod-warn">Консоль: конфликт (map дважды)</li>
+        <li class="dod-pass">index.html в репо</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Фиксы:</span><a href="#F01" class="dep-chip">F01</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">2</div><span class="ticket-name">Карта Европы (GeoJSON)</span></div><span class="ticket-price">1.00 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Границы стран видны</li><li class="dod-pass">Центрирована на Европу</li><li class="dod-fail">Зум НЕ ограничен</li><li class="dod-fail">GeoJSON НЕ в репозитории</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>minZoom: 3, maxZoom: 7</li><li>Скачать GeoJSON в репо</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T02-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T02</span><span class="pc-name">Карта Европы (GeoJSON)</span><span class="pc-price">1.00 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Границы стран видны</li>
+        <li class="dod-pass">Центрирована на Европу</li>
+        <li class="dod-fail">Зум НЕ ограничен</li>
+        <li class="dod-fail">GeoJSON НЕ в репозитории</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Фиксы:</span><a href="#F02" class="dep-chip">F02</a><a href="#F03" class="dep-chip">F03</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">3</div><span class="ticket-name">CSS тёмная тема</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Тёмный фон</li><li class="dod-pass">Шрифт задан</li><li class="dod-warn">Карта 500px, не 80vh</li><li class="dod-pass">Нет горизонтального скролла</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>height: 500px → 80vh</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">80%</span><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T03-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T03</span><span class="pc-name">CSS тёмная тема</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Тёмный фон (#111)</li>
+        <li class="dod-pass">Шрифт задан (Arial)</li>
+        <li class="dod-warn">Карта ~500px, не 80vh</li>
+        <li class="dod-pass">Нет горизонтальных скроллбаров</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">80%</span><div class="progress-bar"><div class="progress-fill" style="width:80%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Фиксы:</span><a href="#F04" class="dep-chip">F04</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">4</div><span class="ticket-name">JSON с данными</span></div><span class="ticket-price">1.00 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">Файла countries.json НЕТ</li><li class="dod-pass">46 стран (>15)</li><li class="dod-fail">Нет полей code, gdp, tam, region</li><li class="dod-fail">Нет ссылок на источники</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Создать countries.json</li><li>Реальные данные + источники</li><li>Загружать через fetch()</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T04-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T04</span><span class="pc-name">JSON с данными</span><span class="pc-price">1.00 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-fail">Файла countries.json НЕТ</li>
+        <li class="dod-pass">46 стран (&gt;15)</li>
+        <li class="dod-fail">Нет полей code, gdp, tam, region</li>
+        <li class="dod-fail">Нет ссылок на источники</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Фиксы:</span><a href="#F05" class="dep-chip">F05</a><a href="#F06" class="dep-chip">F06</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">5</div><span class="ticket-name">Heat map</span></div><span class="ticket-price">1.00 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Градиент работает</li><li class="dod-fail">Без данных = зелёные, не серые</li><li class="dod-pass">Цвета различимы</li><li class="dod-fail">Не из countries.json</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Без данных → серый</li><li>Данные из countries.json</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T05-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T05</span><span class="pc-name">Heat map</span><span class="pc-price">1.00 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Страны окрашены градиентом</li>
+        <li class="dod-fail">Без данных = зелёные, не серые</li>
+        <li class="dod-pass">Цвета различимы</li>
+        <li class="dod-fail">Данные не из countries.json</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T04-m" class="dep-chip">T04</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F07" class="dep-chip">F07</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">6</div><span class="ticket-name">Легенда цветов</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">Под картой, не в углу</li><li class="dod-fail">Текст вместо градиента</li><li class="dod-warn">Подписи есть</li><li class="dod-fail">Нет единицы измерения</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.Control в углу карты</li><li>Цветные квадратики</li><li>Единица измерения</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">40%</span><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T06-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T06</span><span class="pc-name">Легенда цветов</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-fail">Под картой, не в углу</li>
+        <li class="dod-fail">Нет градиента — просто текст</li>
+        <li class="dod-warn">Подписи мин/макс есть</li>
+        <li class="dod-fail">Нет единицы измерения</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">40%</span><div class="progress-bar"><div class="progress-fill" style="width:40%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T04-m" class="dep-chip">T04</a><a href="#T05-m" class="dep-chip">T05</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F08" class="dep-chip">F08</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">7</div><span class="ticket-name">Hover-эффект</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Подсветка при наведении</li><li class="dod-fail">Нет tooltip</li><li class="dod-pass">Возврат при уходе мыши</li><li class="dod-pass">Без мерцания</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.tooltip с названием страны</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T07-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T07</span><span class="pc-name">Hover-эффект</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Подсветка при наведении</li>
+        <li class="dod-fail">Нет tooltip</li>
+        <li class="dod-pass">Возврат при уходе мыши</li>
+        <li class="dod-pass">Без мерцания</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T02-m" class="dep-chip">T02</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F09" class="dep-chip">F09</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">8</div><span class="ticket-name">Детали при клике</span></div><span class="ticket-price">1.00 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-fail">alert() вместо popup</li><li class="dod-warn">Только name + число</li><li class="dod-fail">Нет крестика закрытия</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>L.popup или боковая панель</li><li>Показать GDP, TAM, region</li><li>Крестик закрытия</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T08-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T08</span><span class="pc-name">Детали при клике</span><span class="pc-price">1.00 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-fail">alert() вместо popup</li>
+        <li class="dod-warn">Только name + число</li>
+        <li class="dod-fail">Нет крестика закрытия</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">20%</span><div class="progress-bar"><div class="progress-fill" style="width:20%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T04-m" class="dep-chip">T04</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F10" class="dep-chip">F10</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">9</div><span class="ticket-name">Поиск по стране</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Input поле видно</li><li class="dod-fail">Не зумится на страну</li><li class="dod-pass">Подсвечивает найденные</li><li class="dod-pass">Не ломается</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>map.fitBounds() при 3+ буквах</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T09-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T09</span><span class="pc-name">Поиск по стране</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Input поле видно</li>
+        <li class="dod-fail">НЕ зумится на страну</li>
+        <li class="dod-pass">Подсвечивает найденные</li>
+        <li class="dod-pass">Не ломается</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T02-m" class="dep-chip">T02</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F11" class="dep-chip">F11</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">10</div><span class="ticket-name">Responsive</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-warn">@media только высота</li><li class="dod-pass">Поиск на телефоне ок</li><li class="dod-fail">Не проверено на устройствах</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Проверить iPhone SE, iPad</li><li>Popup не перекрывает карту</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+    <div class="pending-card" id="T10-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T10</span><span class="pc-name">Responsive</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-warn">@media только высота</li>
+        <li class="dod-pass">Поиск работает на телефоне</li>
+        <li class="dod-fail">Не проверено на устройствах</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-red">50%</span><div class="progress-bar"><div class="progress-fill" style="width:50%;background:#f85149"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T08-m" class="dep-chip">T08</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F12" class="dep-chip">F12</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">11</div><span class="ticket-name">Стилизация + favicon</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Favicon есть</li><li class="dod-fail">Title = "Untitled"</li><li class="dod-warn">Стиль минимальный</li><li class="dod-pass">margin:0</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Title → "Europe Data Map"</li><li>Унифицировать стили</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T11-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T11</span><span class="pc-name">Стилизация + favicon</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Favicon есть</li>
+        <li class="dod-fail">Title = "Untitled"</li>
+        <li class="dod-warn">Стиль минимальный</li>
+        <li class="dod-pass">margin:0 на body</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">60%</span><div class="progress-bar"><div class="progress-fill" style="width:60%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T01-m" class="dep-chip">T01</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F13" class="dep-chip">F13</a></div>
     </div>
 
-    <div class="ticket-card">
-      <div class="ticket-header"><div class="ticket-header-left"><div class="ticket-num">12</div><span class="ticket-name">Деплой</span></div><span class="ticket-price">0.50 €</span></div>
-      <div class="ticket-section"><div class="ticket-section-title">DoD</div><ul class="dod-list"><li class="dod-pass">Публичная ссылка</li><li class="dod-warn">Загрузка ~2-3 сек</li><li class="dod-pass">Без VPN</li><li class="dod-warn">Деплоил Oyloo</li></ul></div>
-      <div class="ticket-section"><div class="ticket-section-title">Доделать</div><ul class="todo-list"><li>Научиться деплоить самому</li><li>Локальный GeoJSON</li></ul></div>
-      <div class="ticket-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+    <div class="pending-card" id="T12-m">
+      <div class="pending-card-header">
+        <span class="pc-id">T12</span><span class="pc-name">Деплой</span><span class="pc-price">0.50 €</span>
+      </div>
+      <ul class="dod-list">
+        <li class="dod-pass">Публичная ссылка</li>
+        <li class="dod-warn">Загрузка ~2-3 сек</li>
+        <li class="dod-pass">Без VPN</li>
+        <li class="dod-warn">Деплоил Oyloo</li>
+      </ul>
+      <div class="pc-progress"><span class="badge badge-yellow">70%</span><div class="progress-bar"><div class="progress-fill" style="width:70%;background:#d29922"></div></div></div>
+      <div class="pc-deps"><span class="pc-deps-label">Зависит от:</span><a href="#T02-m" class="dep-chip">T02</a> <span class="pc-deps-label" style="margin-left:4px">Фиксы:</span><a href="#F14" class="dep-chip">F14</a></div>
     </div>
 
+  </div><!-- /mobile-cards -->
+</div><!-- /section pending -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!--  TO DO SECTION                                             -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title-badge todo">🔧 To Do</span>
+    <h2>Нужно доделать</h2>
+    <span class="count-badge">14</span>
   </div>
 
-  <p class="back-link"><a href="./index.html">← Назад к карте</a></p>
+  <div class="fix-grid">
+
+    <!-- F01 -->
+    <div class="fix-card" id="F01">
+      <div class="fix-card-top">
+        <span class="fix-id">F01</span>
+        <span class="fix-title">Убрать двойную HTML обёртку</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T01 HTML + Leaflet.js</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Найти дублирующий HTML wrapper в index.html</li>
+        <li>Оставить один чистый &lt;html&gt;&lt;head&gt;&lt;body&gt;</li>
+        <li>Убедиться, что конфликт map в консоли пропал</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F02 -->
+    <div class="fix-card" id="F02">
+      <div class="fix-card-top">
+        <span class="fix-id">F02</span>
+        <span class="fix-title">Ограничить зум карты</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T02 Карта Европы</span>
+        <span class="fix-priority priority-low">LOW</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Добавить <code style="color:#f0883e">minZoom: 3, maxZoom: 7</code> в L.map()</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F03 -->
+    <div class="fix-card" id="F03">
+      <div class="fix-card-top">
+        <span class="fix-id">F03</span>
+        <span class="fix-title">Скачать GeoJSON в репозиторий</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T02 Карта Европы</span>
+        <span class="fix-priority priority-high">HIGH</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Скачать europe.geojson (naturalearth или аналог)</li>
+        <li>Положить в <code style="color:#f0883e">data/europe.geojson</code></li>
+        <li>Обновить Leaflet: загружать из репо, не внешнего CDN</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F04 -->
+    <div class="fix-card" id="F04">
+      <div class="fix-card-top">
+        <span class="fix-id">F04</span>
+        <span class="fix-title">Высота карты: 500px → 80vh</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T03 CSS тёмная тема</span>
+        <span class="fix-priority priority-low">LOW</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Заменить <code style="color:#f0883e">height: 500px</code> на <code style="color:#f0883e">height: 80vh</code> в CSS</li>
+        <li>Проверить, что карта не обрезается на маленьких экранах</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F05 -->
+    <div class="fix-card" id="F05">
+      <div class="fix-card-top">
+        <span class="fix-id">F05</span>
+        <span class="fix-title">Создать countries.json</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T04 JSON с данными</span>
+        <span class="fix-priority priority-high">HIGH</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Создать <code style="color:#f0883e">data/countries.json</code></li>
+        <li>Поля: code, name, gdp, tam, region (46 стран)</li>
+        <li>Реальные данные — ссылки на источники в README</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F06 -->
+    <div class="fix-card" id="F06">
+      <div class="fix-card-top">
+        <span class="fix-id">F06</span>
+        <span class="fix-title">Загружать данные через fetch()</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T04 JSON с данными</span>
+        <span class="fix-priority priority-high">HIGH</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Заменить хардкод данных на <code style="color:#f0883e">fetch('data/countries.json')</code></li>
+        <li>Дождаться ответа перед инициализацией карты</li>
+        <li>Обработать ошибку загрузки</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F05" class="dep-chip">F05</a>
+      </div>
+    </div>
+
+    <!-- F07 -->
+    <div class="fix-card" id="F07">
+      <div class="fix-card-top">
+        <span class="fix-id">F07</span>
+        <span class="fix-title">Серый цвет для стран без данных</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T05 Heat map</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Если страна не найдена в JSON → <code style="color:#f0883e">fillColor: '#666'</code></li>
+        <li>Убрать зелёный цвет по умолчанию</li>
+        <li>Данные градиента — только из countries.json</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F05" class="dep-chip">F05</a>
+        <a href="#F06" class="dep-chip">F06</a>
+      </div>
+    </div>
+
+    <!-- F08 -->
+    <div class="fix-card" id="F08">
+      <div class="fix-card-top">
+        <span class="fix-id">F08</span>
+        <span class="fix-title">Легенда цветов с L.Control</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T06 Легенда цветов</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Перенести легенду в <code style="color:#f0883e">L.control({ position: 'bottomright' })</code></li>
+        <li>Цветные квадратики вместо текста</li>
+        <li>Добавить единицу измерения ($ млрд или % TAM)</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F05" class="dep-chip">F05</a>
+        <a href="#F07" class="dep-chip">F07</a>
+      </div>
+    </div>
+
+    <!-- F09 -->
+    <div class="fix-card" id="F09">
+      <div class="fix-card-top">
+        <span class="fix-id">F09</span>
+        <span class="fix-title">Tooltip при наведении (L.tooltip)</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T07 Hover-эффект</span>
+        <span class="fix-priority priority-low">LOW</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Добавить <code style="color:#f0883e">.bindTooltip(name)</code> к каждому слою GeoJSON</li>
+        <li>Стиль: тёмный фон, белый текст, без задержки</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F10 -->
+    <div class="fix-card" id="F10">
+      <div class="fix-card-top">
+        <span class="fix-id">F10</span>
+        <span class="fix-title">Popup вместо alert()</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T08 Детали при клике</span>
+        <span class="fix-priority priority-high">HIGH</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Убрать <code style="color:#f0883e">alert()</code>, заменить на L.popup или боковую панель</li>
+        <li>Показать: название, GDP, TAM, регион</li>
+        <li>Кнопка закрытия (крестик)</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F05" class="dep-chip">F05</a>
+        <a href="#F06" class="dep-chip">F06</a>
+      </div>
+    </div>
+
+    <!-- F11 -->
+    <div class="fix-card" id="F11">
+      <div class="fix-card-top">
+        <span class="fix-id">F11</span>
+        <span class="fix-title">Зум при поиске (fitBounds)</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T09 Поиск по стране</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>При вводе 3+ символов — найти слой страны</li>
+        <li>Вызвать <code style="color:#f0883e">map.fitBounds(layer.getBounds())</code></li>
+        <li>Дебаунс на 300ms, чтобы не прыгало</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F12 -->
+    <div class="fix-card" id="F12">
+      <div class="fix-card-top">
+        <span class="fix-id">F12</span>
+        <span class="fix-title">Проверка Responsive</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T10 Responsive</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Протестировать на iPhone SE (375px) и iPad (768px)</li>
+        <li>Popup/панель не должна перекрывать карту</li>
+        <li>Добавить media queries если нужно</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F10" class="dep-chip">F10</a>
+      </div>
+    </div>
+
+    <!-- F13 -->
+    <div class="fix-card" id="F13">
+      <div class="fix-card-top">
+        <span class="fix-id">F13</span>
+        <span class="fix-title">Title и унификация стилей</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T11 Стилизация + favicon</span>
+        <span class="fix-priority priority-low">LOW</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Изменить <code style="color:#f0883e">&lt;title&gt;</code> на "Europe Data Map"</li>
+        <li>Унифицировать шрифты, отступы, цвета в CSS</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <span class="no-deps">нет зависимостей</span>
+      </div>
+    </div>
+
+    <!-- F14 -->
+    <div class="fix-card" id="F14">
+      <div class="fix-card-top">
+        <span class="fix-id">F14</span>
+        <span class="fix-title">Научиться деплоить самому</span>
+      </div>
+      <div class="fix-meta">
+        <span class="fix-related">← T12 Деплой</span>
+        <span class="fix-priority priority-med">MEDIUM</span>
+      </div>
+      <ul class="fix-steps">
+        <li>Освоить git push → GitHub Pages автодеплой</li>
+        <li>Убедиться, что локальный GeoJSON подтянулся (F03)</li>
+        <li>Задокументировать шаги деплоя в README</li>
+      </ul>
+      <div class="fix-deps">
+        <span class="fix-deps-label">Зависит от:</span>
+        <a href="#F03" class="dep-chip">F03</a>
+      </div>
+    </div>
+
+  </div><!-- /fix-grid -->
+</div><!-- /section todo -->
+
+<p class="back-link"><a href="./index.html">← Назад к карте</a></p>
 </body>
 </html>
